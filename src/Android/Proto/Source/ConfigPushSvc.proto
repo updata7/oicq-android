@@ -1,0 +1,15 @@
+syntax = "proto3";
+package ConfigPushSvcProto;
+
+message PushReq{
+  message ServerInfo{
+    string Host = 1;
+    int32 Port = 2;
+    int32 Params = 3;
+  }
+  message ChangeServer{
+    int32 Param = 1;
+    ServerInfo SereverList = 2;
+
+  }
+}

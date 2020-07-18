@@ -1,0 +1,9 @@
+module PushForceOffline
+{
+    struct Pack{
+    0 require long Uin;
+    1 require string Title;
+    2 require string Ttips;
+    3 require string SameDevice;
+    };
+};

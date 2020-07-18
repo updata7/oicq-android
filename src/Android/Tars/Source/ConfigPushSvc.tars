@@ -1,0 +1,87 @@
+module ConfigPushSvcTars
+{
+    struct PushReq
+    {
+        1 require int          Type;
+        2 require vector<byte> Buff;
+        3 require long         Seq;
+    };
+
+    struct FileStorageServerListInfo
+    {
+        1 optional string Ip;
+        2 require int    Port;
+    };
+
+    struct BigDataIpInfo
+    {
+        0 optional long   Type;
+        1 require string Ip;
+        2 require long   Port;
+    };
+
+    struct NetSegConf
+    {
+        0 optional long Uint32NetType;
+        1 optional long Uint32Segsize;
+        2 optional byte Uint32Segnum;
+        3 optional long Uint32Curconnnum;
+    };
+    struct BigDataIpList
+    {
+        0 optional  long                  ServiceType;
+        1 optional  vector<BigDataIpInfo> Iplist;
+        2 optional vector<NetSegConf>    NetSegConfs;
+        3 optional long                  fragmentSize;
+    };
+
+    struct BigDataChannel
+    {
+        0 optional  vector<BigDataIpList> BigdataIplists;
+        1 optional vector<byte>          BigdataSigSession;
+        2 optional vector<byte>          BigdataKeySession;
+        3 optional long                  SigUin;
+        4 optional int                   ConnectFlag;
+        5 optional vector<byte>          BigdataPbBuf;
+    };
+
+    struct FmtIPInfo
+    {
+        0 optional string GateIp;
+        1 optional long   GateIpOper;
+    };
+    struct DomainIpInfo
+    {
+        1 optional int Ip;
+        2 require int Port;
+    };
+    struct DomainIpList
+    {
+        0 optional  int                  DomainType;
+        1 optional  vector<DomainIpInfo> IpList;
+        2 optional vector<byte>         Param;
+        4 optional int                  Param2;
+    };
+    struct DomainIpChannel
+    {
+        0 optional vector<DomainIpList> DomainIplists;
+    };
+
+
+
+    //这个结构体没有带结构体头
+/*    struct FileStoragePushFSSvcList
+    {
+        0  optional vector<FileStorageServerListInfo> UpLoadList;
+        1  optional vector<FileStorageServerListInfo> PicDownLoadList;
+        2  optional vector<FileStorageServerListInfo> GPicDownLoadList;
+        3  optional vector<FileStorageServerListInfo> QzoneProxyServiceList;
+        4  optional vector<FileStorageServerListInfo> UrlEncodeServiceList;
+        5  optional BigDataChannel                    BigDataChannel;
+        6  optional vector<FileStorageServerListInfo> VipEmotionList;
+        7  optional vector<FileStorageServerListInfo> C2CPicDownList;
+        8  optional FmtIPInfo                         FmtIPInfo;
+        9  optional DomainIpChannel                   DomainIpChannel;
+        10 optional vector<byte>                      Pttlist;
+    };*/
+};

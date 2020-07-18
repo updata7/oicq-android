@@ -1,0 +1,16 @@
+module SQQZoneSvcTars
+
+{
+    struct QMF_PROTOCALmobile_get_config_req
+    {
+        0 optional int    IParam;
+        1 optional byte   BParam;
+        2 optional string Config;
+    };
+    struct QMF_PROTOCALQmfBusiControl
+    {
+        0 optional int  Zero;
+        1 optional int  IParam;
+        2 optional bool Flag;
+    };
+};

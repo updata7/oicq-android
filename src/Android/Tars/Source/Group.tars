@@ -1,0 +1,184 @@
+module GroupTars
+{
+
+    struct StTroopNumSimplify
+    {
+        0 require long GroupCode;
+        1 require long DwGroupInfoSeq;
+        2 require long DwGroupFlagExt;
+        3 require long DwGroupRankSeq;
+    };
+
+    struct StLevelRankPair
+    {
+        0 optional long   DwLevel;
+        1 optional string Rank;
+    };
+
+    struct StGroupRankInfo
+    {
+        0 require  long                    DwGroupCode;
+        1 optional byte                    GroupRankSysFlag;
+        2 optional byte                    GroupRankUserFlag;
+        3 optional vector<StLevelRankPair> VecRankMap;
+        4 optional long                    DwGroupRankSeq;
+        5 optional string                  OwnerName;
+        6 optional string                  AdminName;
+        7 optional long                    DwOfficeMode;
+    };
+
+    struct StTroopNum
+    {
+        0  require  long   GroupUin;
+        1  require  long   GroupCode;
+        2  optional byte   Flag;
+        3  optional long   DwGroupInfoSeq;
+        4  optional string GroupName;
+        5  optional string GroupMemo;
+        6  optional long   DwGroupFlagExt;
+        7  optional long   DwGroupRankSeq;
+        8  optional long   DwCertificationType;
+        9  optional long   DwShutUpTimestamp;
+        10 optional long   DwMyShutUpTimestamp;
+        11 optional long   DwCmdUinUinFlag;
+        12 optional long   DwAdditionalFlag;
+        13 optional long   DwGroupTypeFlag;
+        14 optional long   DwGroupSecType;
+        15 optional long   DwGroupSecTypeInfo;
+        16 optional long   DwGroupClassExt;
+        17 optional long   DwAppPrivilegeFlag;
+        18 optional long   DwSubscriptionUin;
+        19 optional long   DwMemberNum;
+        20 optional long   DwMemberNumSeq;
+        21 optional long   DwMemberCardSeq;
+        22 optional long   DwGroupFlagExt3;
+        23 require  long   DwGroupOwnerUin;
+        24 optional long   IsConfGroup;
+        25 optional long   IsModifyConfGroupFace;
+        26 optional long   IsModifyConfGroupName;
+        27 optional long   DwCmduinJoinTime;
+        28 optional long   UlCompanyId;
+        29 optional long   DwMaxGroupMemberNum;
+        30 optional long   DwCmdUinGroupMask;
+        31 optional long   UdwHLGuildAppid;
+        32 optional long   UdwHLGuildSubType;
+        33 optional long   UdwCmdUinRingtoneID;
+        34 optional long   UdwCmdUinFlagEx2;
+    };
+
+
+    struct StFavoriteGroup
+    {
+        0 require  long DwGroupCode;
+        1 optional long DwTimestamp;
+        2 optional long DwSnsFlag;
+        3 optional long DwOpenTimestamp;
+    };
+
+
+    struct GetTroopListRespV2
+    {
+        0 require  long                    Uin;
+        1 require  short                   TroopCount;
+        2 require  int                     Reuslt;
+        3 optional short                   ErrorCode;
+        4 optional vector<byte>            VecCookies;
+        5 optional vector<StTroopNum>      VecTroopList;
+        6 optional vector<StTroopNum>      VecTroopListDel;
+        7 optional vector<StGroupRankInfo> VecTroopRank;
+        8 optional vector<StFavoriteGroup> VecFavGroup;
+        9 optional vector<StTroopNum>      VecTroopListExt;
+
+    };
+
+    //获取群
+    struct GetTroopListReqV2SimplifyReq
+    {
+
+        0 require  long                       Uin;
+        1 optional byte                       GetMSFMsgFlag;
+        // 非必要值
+        //2 optional vector<byte>               VecCookies;
+        3 optional vector<StTroopNumSimplify> VecGroupInfo;
+        4 optional byte                       GroupFlagExt;
+        5 optional int                        ShVersion;
+        6 optional long                       DwCompanyId;
+        7 optional long                       VersionNum;
+        8 optional byte                       GetLongGroupName;
+    };
+
+    //获取群员
+    struct GetTroopMemberListReq
+    {
+        0 require long Uin;
+        1 require long GroupCode;
+        2 require long NextUin;
+        3 require long GroupUin;
+        4 require long Version;
+        5 require long ReqType;
+        6 require long GetListAppointTime;
+        7 require byte RichCardNameVer;
+    };
+    struct QzoneUserInfo
+    {
+        0 optional int                 StarState;
+        1 optional map<string, string> ExtendInfo;
+    };
+    struct StTroopMemberInfo
+    {
+        0  optional long          MemberUin;
+        1  optional short         FaceId;
+        2  optional byte          Age;
+        3  optional byte          Gender;
+        4  require  string        Nick;
+        5  optional byte          Status;
+        6  optional string        ShowName;
+        8  optional string        Name;
+        9  optional byte          BGender;
+        10 optional string        Phone;
+        11 optional string        Email;
+        12 optional string        Memo;
+        13 optional string        AutoRemark;
+        14 optional long          DwMemberLevel;
+        15 optional long          DwJoinTime;
+        16 optional long          DwLastSpeakTime;
+        17 optional long          DwCreditLevel;
+        18 optional long          DwFlag;
+        19 optional long          DwFlagExt;
+        20 optional long          DwPoint;
+        21 optional byte          Concerned;
+        22 optional byte          Shielded;
+        23 optional string        SpecialTitle;
+        24 optional long          DwSpecialTitleExpireTime;
+        25 optional string        Job;
+        26 optional byte          ApolloFlag;
+        27 optional long          DwApolloTimestamp;
+        28 optional long          DwGlobalGroupLevel;
+        29 optional long          DwTitleId;
+        30 optional long          DwShutupTimestap;
+        31 optional long          DwGlobalGroupPoint;
+        32 optional QzoneUserInfo QzoneUserInfo;
+        33 optional byte          RichCardNameVer;
+        34 optional long          DwVipType;
+        35 optional long          DwVipLevel;
+        36 optional long          DwBigClubLevel;
+        37 optional long          DwBigClubFlag;
+        38 optional long          DwNameplate;
+        39 optional vector<byte>  VecGroupHonor;
+
+    };
+    struct GetTroopMemberListResp
+    {
+        0 require  long  Uin;
+        1 require  long  GroupCode;
+        2 require  long  GroupUin;
+        3 require  vector<
+                   StTroopMemberInfo
+                   >     VecTroopMember;
+        4 require  long  NextUin;
+        5 require  int   Result;
+        6 optional short ErrorCode;
+        7 optional long  OfficeMode;
+        8 optional long  NextGetTime;
+    };
+};

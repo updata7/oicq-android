@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package OidbSvcPb;
+
+message OidbSvcPack{
+  int32 Command = 1;
+  int32 ServiceType = 2;
+  int32 Result = 3;
+  bytes BodyBuffer = 4;
+  string ErrorMsg = 5;
+  string ClientVersion = 6;
+}
+

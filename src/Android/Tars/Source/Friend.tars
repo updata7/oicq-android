@@ -1,0 +1,164 @@
+module FriendTars
+{
+    struct StUinInfo
+    {
+        0 require long   Dwuin;
+        1 require long   DwFlag;
+        2 require string SName;
+        3 require string Gender;
+        4 require string SPhone;
+        5 require string SEmail;
+        6 require string SRemark;
+    };
+    struct ModifyGroupCardReq
+    {
+        0 require long              DwZero;
+        1 require long              DwGroupCode;
+        2 require long              DwNewSeq;
+        3 require vector<StUinInfo> VecUinInfo;
+    };
+    struct GetFriendListReq
+    {
+        0  optional int          ReqType;
+        1  optional byte         IfReflush;
+        2  optional long         Uin;
+        3  optional short        StartIndex;
+        4  optional short        GetfriendCount;
+        5  optional byte         GroupId;
+        6  optional byte         IfGetGroupInfo;
+        7  optional byte         GroupstartIndex;
+        8  optional byte         GetgroupCount;
+        9  optional byte         IfGetMSFGroup;
+        10 optional byte         IfShowTermType;
+        11 optional long         Version;
+        // 12 optional vector<long> UinList;
+        13 optional int          EAppType;
+        14 optional byte         IfGetDOVId;
+        15 optional byte         IfGetBothFlag;
+
+
+        16 optional vector<byte> Vec0xd50Req;
+        17 optional vector<byte> Vec0xd6bReq;
+        18 optional vector<long> VecSnsTypelist;
+    };
+    struct VipOpenInfo
+    {
+        0 optional bool Open;
+        1 optional int  IVipType;
+        2 optional int  IVipLevel;
+        3 optional int  IVipFlag;
+        4 optional long NameplateId;
+    };
+    struct VipBaseInfo
+    {
+        0 optional map<int, VipOpenInfo> MOpenInfo;
+        1 optional int                   INameplateVipType;
+        2 optional int                   IGrayNameplateFlag;
+    };
+    struct FriendInfo
+    {
+        0  require  long         Uin;
+        1  require  byte         GroupId;
+        2  require  short        FaceId;
+        3  require  string       Remark;
+        4  require  byte         Sqqtype;
+        5  require  byte         Status;
+        6  optional byte         MemberLevel;
+        7  optional byte         IsMqqOnLine;
+        8  optional byte         SqqOnLineState;
+        9  optional byte         IsIphoneOnline;
+        10 optional byte         DetalStatusFlag;
+        11 optional byte         SqqOnLineStateV2;
+        12 optional string       SShowName;
+        13 optional byte         IsRemark;
+        14 optional string       Nick;
+        15 optional byte         SpecialFlag;
+        16 optional vector<byte> VecIMGroupID;
+        17 optional vector<byte> VecMSFGroupID;
+        18 optional int          ITermType;
+        19 optional VipBaseInfo  OVipInfo;
+        20 optional byte         Network;
+        21 optional vector<byte> VecRing;
+        22 optional long         UAbiFlag;
+        23 optional long         UlFaceAddonId;
+        24 optional int          NetworkType;
+        25 optional long         VipFont;
+        26 optional int          IconType;
+        27 optional string       TermDesc;
+        28 optional long         ColorRing;
+        29 optional byte         ApolloFlag;
+        30 optional long         UApolloTimestamp;
+        31 optional byte         Sex;
+        32 optional long         FounderFont;
+        33 optional string       EimId;
+        34 optional string       EimMobile;
+        35 optional byte       OlympicTorch;
+        36 optional long         UApolloSignTime;
+        37 optional long         ULaviUin;
+        38 optional long         UTagUpdateTime;
+        39 optional long         UGameLastLoginTime;
+        40 optional long         UGameAppid;
+        41 optional vector<byte> VecCardID;
+        42 optional long         UlBitSet;
+        43 optional byte         KingOfGloryFlag;
+        44 optional byte         UlKingOfGloryRank;
+        45 optional string       MasterUin;
+        46 optional long         ULastMedalUpdateTime;
+        47 optional long         UFaceStoreId;
+        48 optional long         UFontEffect;
+        49 optional string       SDOVId;
+        50 optional long         UBothFlag;
+        51 optional byte         CentiShow3DFlag;
+        52 optional vector<byte> VecIntimateInfo;
+        53 optional byte         ShowNameplate;
+        54 optional byte         NewLoverDiamondFlag;
+        55 optional vector<byte> VecExtSnsFrdData;
+        56 optional vector<byte> VecMutualMarkData;
+    };
+
+    struct GroupInfo
+    {
+        0 require  byte   GroupId;
+        1 require  string Groupname;
+        2 require  int    FriendCount;
+        3 require  int    OnlineFriendCount;
+        4 optional byte   Seqid;
+        5 optional int    SqqOnLineCount;
+    };
+
+    struct FriendListSubSrvRspCode
+    {
+        0 optional short WGetMutualMarkRspCode;
+        2 optional short WGetIntimateInfoRspCode;
+    };
+    struct GetFriendListResp
+    {
+        0  require  int                     ReqType;
+        1  require  byte                    IfReflush;
+        2  require  long                    Uin;
+        3  require  short                   StartIndex;
+        4  require  short                   GetfriendCount;
+        5  require  short                   TotoalFriendCount;
+        6  require  short                   FriendCount;
+        7  require  vector<FriendInfo>      VecFriendInfo;
+        8  optional byte                    Groupid;
+        9  require  byte                    IfGetGroupInfo;
+        10 optional byte                    GroupstartIndex;
+        11 optional byte                    GetgroupCount;
+        12 optional short                   TotoalGroupCount;
+        13 optional byte                    GroupCount;
+        14 optional vector<GroupInfo>       VecGroupInfo;
+        15 require  int                     Result;
+        16 optional short                   ErrorCode;
+        17 optional short                   OnlineFriendCount;
+        18 optional long                    ServerTime;
+        19 optional short                   SqqOnLineCount;
+        20 optional vector<GroupInfo>       VecMSFGroupInfo;
+        21 optional byte                    RespType;
+        22 optional byte                    HasOtherRespFlag;
+        23 optional FriendInfo              StSelfInfo;
+        24 optional byte                    ShowPcIcon;
+        25 optional short                   WGetExtSnsRspCode;
+        26 optional FriendListSubSrvRspCode StSubSrvRspCode;
+    };
+};

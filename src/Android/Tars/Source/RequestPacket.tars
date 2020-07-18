@@ -1,0 +1,17 @@
+module RequesPack
+{
+    struct Pack
+    {
+        1  require  short               Version     = 3;  //版本号
+        2  optional byte                PacketType  = 0;  //包类型
+        3  optional int                 MessageType = 0;  //消息类型
+        4  require  int                 RequestId   = 0;  //请求ID
+        5  require  string              ServantName = ""; //servant名字
+        6  require  string              FuncName    = ""; //函数名称
+        7  require  vector<byte>        Buffer;           //二进制buffer
+        8  optional int                 Timeout     = 0;  //超时时间（毫秒）
+        9  optional map<string, string> Context;          //业务上下文
+        10 optional map<string, string> Status;           //框架协议上下文
+
+    };
+};

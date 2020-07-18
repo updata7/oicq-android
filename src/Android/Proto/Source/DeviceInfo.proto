@@ -1,0 +1,14 @@
+syntax = "proto3";
+package DeviceInfo;
+message Struct
+{
+    bytes  Bootloader=1;
+    bytes  ProcVersion=2;
+    bytes  Codename=3;
+    bytes  Incremental=4;
+    bytes  Fingerprint=5;
+    bytes  BootId=6;
+    bytes  AndroidId=7;
+    bytes  BaseBand=8;
+    bytes  InnerVersion=9;
+}

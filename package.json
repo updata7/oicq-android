@@ -1,0 +1,21 @@
+{
+    "name": "QQProtocol",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "dependencies": {
+        "@tars/stream": "^2.0.3",
+        "@types/log4js": "^2.3.5",
+        "@types/node": "^14.0.23",
+        "dgram": "^1.0.1",
+        "iconv-lite": "^0.6.2",
+        "log4js": "^6.3.0",
+        "protobufjs": "^6.9.0"
+    },
+    "devDependencies": {
+        "eslint": "^7.1.0",
+        "ts-node": "^8.10.2",
+        "typescript": "^3.9.3",
+        "typescript-eslint-parser": "^22.0.0"
+    }
+}

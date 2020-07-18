@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package Vec0xd50;
+
+message ReqBody{
+  int64 Appid = 1;
+  int32 MaxPkgSize = 2;
+  int32 StartTime = 3;
+  int32 StartIndex = 4;
+  int32 ReqNum = 5;
+  repeated int32 UinList = 6;
+  int32 ReqMusicSwitch = 7;
+  int32 ReqMutualmarkAlienation = 8;
+  int32 ReqMutualmarkScore = 9;
+  int32 ReqKsingSwitch = 10;
+  int32 ReqMutualmarkLbsshare = 11;
+}

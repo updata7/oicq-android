@@ -1,0 +1,1291 @@
+syntax = "proto3";
+
+package Msg;
+
+
+message MsgField{
+
+  message ImMsgBody{
+    message Attribute{
+      int32 CodePage = 1;
+      int32 Time = 2;
+      int32 Random = 3;
+      int32 Color = 4;
+      int32 Size = 5;
+      int32 Effect = 6;
+      int32 CharSet = 7;
+      int32 PitchAndFamily = 8;
+      // utf-8
+      bytes FontName = 9;
+      bytes ReserveData = 10;
+    }
+    message NotOnlineFile{
+      int32 FileType = 1;
+      bytes Sig = 2;
+      bytes FileUuid = 3;
+      bytes     FileMd5 = 4;
+      bytes FileName = 5;
+      float FileSize = 6;
+      bytes Note = 7;
+      bytes Reserved = 8;
+      int32 Subcmd = 9;
+      int32 MicroCloud = 10;
+      repeated bytes BytesFileUrls = 11;
+      int32 DownloadFlag = 12;
+      int32   DangerEvel = 50;
+      int32 LifeTime = 51;
+      int32   UploadTime = 52;
+      int32 AbsFileType = 53;
+      int32 ClientType = 54;
+      int32 ExpireTime = 55;
+      bytes PbReserve = 56;
+    }
+    message Ptt{
+      int32 FileType = 1;
+      int64   SrcUin = 2;
+      bytes FileUuid = 3;
+      bytes FileMd5 = 4;
+      bytes FileName = 5;
+      int32 FileSize = 6;
+      bytes Reserve = 7;
+      int32  FileId = 8;
+      int32 ServerIp = 9;
+      int32 ServerPort = 10;
+      bool BoolValid = 11;
+      bytes Signature = 12;
+      bytes  Shortcut = 13;
+      bytes FileKey = 14;
+      int32 MagicPttIndex = 15;
+      int32 VoiceSwitch = 16;
+      bytes PttUrl = 17;
+      bytes GroupFileKey = 18;
+      int32 Time = 19;
+      bytes DownPara = 20;
+      int32 Format = 29;
+      bytes PbReserve = 30;
+      repeated bytes BytesPttUrls = 31;
+      int32  DownloadFlag = 32;
+    }
+    message TmpPtt{
+      int32 FileType = 1;
+      bytes    FileUuid = 2;
+      bytes FileMd5 = 3;
+      bytes  FileName = 4;
+      int32  FileSize = 5;
+      int32 PttTimes = 6;
+      int32 UserType = 7;
+      int32 PtttransFlag = 8;
+      int32 BusiType = 9;
+      int64 MsgId = 10;
+      bytes PbReserve = 30;
+      bytes PttEncodeData = 31;
+    }
+    message Trans211TmpMsg{
+      bytes MsgBody = 1;
+      int32  C2cCmd = 2;
+    }
+    message Text{
+      //编码utf-8
+      string Str = 1;
+      string Link = 2;
+      bytes AttrBuff6 = 3;
+      bytes AttrBuff7 = 4;
+      bytes Buff = 5;
+      bytes PbReserve = 6;
+    }
+
+    message Face{
+      int32 Index = 1;
+      bytes Old = 2;
+      bytes Buff = 3;
+    }
+
+
+
+    message OnlineImage{
+      bytes Guid = 1;
+      bytes FilePath = 2;
+      bytes OldVerSendFile = 3;
+    }
+
+
+    message NotOnlineImage{
+      string FilePath = 1;
+      int32 FileLen = 2;
+      string DownloadPath = 3;
+      bytes  OldVerSendFile = 4;
+      int32 ImgType = 5;
+      bytes PreviewsImage = 6;
+      bytes PicMd5 = 7;
+      int32 PicHeight = 8;
+      int32 PicWidth = 9;
+      string ResId = 10;
+      bytes Flag = 11;
+      string ThumbUrl = 12;
+      int32 Original = 13;
+      string BigUrl = 14;
+      string OrigUrl = 15;
+      int32 BizType = 16;
+      int32 Result = 17;
+      int32 Index = 18;
+      bytes OpFaceBuf = 19;
+      bool OldPicMd5 = 20;
+      int32 ThumbWidth = 21;
+      int32 ThumbHeight = 22;
+      int32 FileId = 23;
+      int32 ShowLen = 24;
+      int32 DownloadLen = 25;
+      string Url = 26;
+      string Width = 27;
+      string  Height = 28;
+      bool PbReserve = 29;
+
+    }
+
+    message TransElemInfo{
+      int32 ElemType = 1;
+      bytes ElemValue = 2;
+    }
+    message MarketFace{
+      bytes FaceName = 1;
+      int32 ItemType = 2;
+      int32 FaceInfo = 3;
+      bytes FaceId = 4;
+      int32  TabId = 5;
+      int32  SubType = 6;
+      bytes  Key = 7;
+      bytes Param = 8;
+      int32 MediaType = 9;
+      int32 ImageWidth = 10;
+      int32 ImageHeight = 11;
+      bytes  Mobileparam = 12;
+      bytes  PbReserve = 13;
+    }
+
+    message ElemFlags{
+      bytes Flags = 1;
+      bytes BusinessData = 2;
+    }
+
+    message CustomFace{
+      bytes Guid = 1;
+      string FilePath = 2;
+      string Shortcut = 3;
+      bytes Buffer = 4;
+      bytes Flag = 5;
+      bytes OldData = 6;
+      int32 FileId = 7;
+      int32  ServerIp = 8;
+      int32 ServerPort = 9;
+      int32  FileType = 10;
+      bytes Signature = 11;
+      int32 Useful = 12;
+      bytes Md5 = 13;
+      string  ThumbUrl = 14;
+      string    BigUrl = 15;
+      string  OrigUrl = 16;
+      int32    BizType = 17;
+      int32  RepeatIndex = 18;
+      int32  RepeatImage = 19;
+      int32   ImageType = 20;
+      int32  Index = 21;
+      int32   Width = 22;
+      int32   Height = 23;
+      int32    Source = 24;
+      int32    Size = 25;
+      int32   Origin = 26;
+      int32   ThumbWidth = 27;
+      int32  ThumbHeight = 28;
+      int32  ShowLen = 29;
+      int32  DownloadLen = 30;
+      string   Url = 31;
+      int32  OtherWidth = 32;
+      int32 OtherHeight = 33;
+      bytes PbReserve = 34;
+    }
+
+    message Inst{
+      int32 AppId = 1;
+      int32 InstId = 2;
+    }
+    message PcSupportDef{
+      int32 PcPtlBegin = 1;
+      int32 PcPtlEnd = 2;
+      int32 MacPtlBegin = 3;
+      int32 MacPtlEnd = 4;
+      repeated int32 PtlsSupport = 5;
+      repeated  int32 PtlsNotSupport = 6;
+    }
+    message ElemFlags2{
+      int32  ColorTextId = 1;
+      int64  MsgId = 2;
+      int32   WhisperSessionId = 3;
+      int32   PttChangeBit = 4;
+      int32   VipStatus = 5;
+      int32 CompatibleId = 6;
+      repeated Inst  Insts = 7;
+      int32 MsgRptCnt = 8;
+      Inst SrcInst = 9;
+      int32 Longtitude = 10;
+      int32 Latitude = 11;
+      int32 CustomFont = 12;
+      PcSupportDef PcSupportDef = 13;
+      int32  CrmFlags = 14;
+    }
+
+    message Turntable{
+      repeated int64 Uint64UinList = 1;
+      int64 HitUin = 2;
+      string HitUinNick = 3;
+    }
+    message Bomb{
+      bool BoolBurst = 1;
+    }
+
+    message FunFace{
+      Turntable MsgTurntable = 1;
+      Bomb MsgBomb = 2;
+    }
+
+    message SecretFileMsg{
+      bool  FileKey = 1;
+      int64 FromUin = 2;
+      int64   ToUin = 3;
+      int32  Status = 4;
+      int32 Ttl = 5;
+      int32 Type = 6;
+      int32  EncryptPreheadLength = 7;
+      int32 EncryptType = 8;
+      bytes EncryptKey = 9;
+      int32 ReadTimes = 10;
+      int32  LeftTime = 11;
+      NotOnlineImage    NotOnlineImage = 12;
+      ElemFlags2   ElemFlags2 = 13;
+      int32  Opertype = 14;
+      string  Fromphonenum = 15;
+    }
+
+
+    message RichMsg{
+      bytes Template = 1;
+      int32 ServiceId = 2;
+      bytes MsgResid = 3;
+      int32 Rand = 4;
+      int32 Seq = 5;
+      int32  Flags = 6;
+    }
+
+    message GroupFile{
+      bytes Filename = 1;
+      int64  FileSize = 2;
+      bytes  FileId = 3;
+      bytes  BatchId = 4;
+      bytes   FileKey = 5;
+      bytes   Mark = 6;
+      int64 Sequence = 7;
+      bytes  BatchItemId = 8;
+      int32  FeedMsgTime = 9;
+      bytes  PbReserve = 10;
+
+    }
+
+    message PubGroup{
+      bytes NickName = 1;
+      int32 Gender = 2;
+      int32 Age = 3;
+      int32 Distance = 4;
+    }
+
+    message MarketTrans{
+      int32 Flag = 1;
+      bytes Xml = 2;
+      bytes MsgResId = 3;
+      int32 Ability = 4;
+      int32 MinAbility = 5;
+    }
+
+    message ExtraInfo{
+      bytes Nick = 1;
+      string GroupCard = 2;
+      int32 Level = 3;
+      int32 Flags = 4;
+      int32 GroupMask = 5;
+      int32 MsgTailid = 6;
+      bytes Sendertitle = 7;
+      bytes ApnsTips = 8;
+      int64 Uin = 9;
+      int32 MsgStateFlag = 10;
+      int32 ApnsSoundType = 11;
+      int32 Newgroupflag = 12;
+
+    }
+
+    message ShakeWindow{
+      int32 Type = 1;
+      int32 Reserve = 2;
+      int64 Uin = 3;
+    }
+
+    message PubAccount
+    {
+      bytes Buf = 1;
+      int64 Pubaccountuin = 2;
+    }
+
+    message VideoFile {
+      bytes Fileuuid = 1;
+      bytes Filemd5 = 2;
+      bytes Filename = 3;
+      int32 Fileformat = 4;
+      int32 Filetime = 5;
+      int32 Filesize = 6;
+      int32 Thumbwidth = 7;
+      int32 Thumbheight = 8;
+      bytes Thumbfilemd5 = 9;
+      bytes Source = 10;
+      int32 Thumbfilesize = 11;
+      int32 Busitype = 12;
+      int32 Fromchattype = 13;
+      int32 Tochattype = 14;
+      bool Boolsupportprogressive = 15;
+      int32 Filewidth = 16;
+      int32 Fileheight = 17;
+      int32 Subbusitype = 18;
+      int32 Videoattr = 19;
+      repeated bytes Bytesthumbfileurls = 20;
+      repeated bytes Bytesvideofileurls = 21;
+      int32 Thumbdownloadflag = 22;
+      int32 Videodownloadflag = 23;
+      bytes Pbreserve = 24;
+    }
+
+
+    message TipsInfo{
+      int32 Sessiontype = 1;
+      int64 Sessionuin = 2;
+      string Text = 3;
+    }
+
+    message AnonGroupMsg{
+      int32 Flags = 1;
+      bytes Anonid = 2;
+      bytes Anonnick = 3;
+      int32 Headportrait = 4;
+      int32 Expiretime = 5;
+      int32 Bubbleid = 6;
+      bytes Rankcolor = 7;
+    }
+
+
+    message QqLiveOld{
+      int32 Subcmd = 1;
+      bytes Showtext = 2;
+      bytes Param = 3;
+      bytes Introduce = 4;
+    }
+
+    message LifeOnline{
+      int64 Uniqueid = 1;
+      int32 Op = 2;
+      int32 Showtime = 3;
+      int32 Report = 4;
+      int32 Ack = 5;
+      int64 Bitmap = 6;
+      bytes Gdtimpdata = 7;
+      bytes Gdtclidata = 8;
+      bytes Viewid = 9;
+    }
+
+    message QQWalletAioElem{
+      int32 Background = 1;
+      int32 Icon = 2;
+      bytes Title = 3;
+      bytes Subtitle = 4;
+      bytes Content = 5;
+      bytes Linkurl = 6;
+      bytes Blackstripe = 7;
+      bytes Notice = 8;
+      int32 Titlecolor = 9;
+      int32 Subtitlecolor = 10;
+      bytes Actionspriority = 11;
+      bytes Jumpurl = 12;
+      bytes Nativeios = 13;
+      bytes Nativeandroid = 14;
+      bytes Iconurl = 15;
+      int32 Contentcolor = 16;
+      int32 Contentbgcolor = 17;
+      bytes Aioimageleft = 18;
+      bytes Aioimageright = 19;
+      bytes Cftimage = 20;
+      bytes Pbreserve = 21;
+    }
+    message QQWalletAioBody{
+      int64 Senduin = 1;
+      QQWalletAioElem Sender = 2;
+      QQWalletAioElem Receiver = 3;
+      int32 Sint32channelid = 4;
+      int32 Sint32templateid = 5;
+      int32 Resend = 6;
+      int32 Msgpriority = 7;
+      int32 Sint32redtype = 8;
+      bytes Billno = 9;
+      bytes Authkey = 10;
+      int32 Sint32sessiontype = 11;
+      int32 Sint32msgtype = 12;
+      int32 Sint32envelopeid = 13;
+      bytes Name = 14;
+      int32 Sint32conftype = 15;
+      int32 Sint32msgfrom = 16;
+      bytes Pcbody = 17;
+      bytes Ingindex = 18;
+      int32 Redchannel = 19;
+      repeated int64 Grapuin = 20;
+      bytes Pbreserve = 21;
+    }
+
+    message QQWalletMsg{
+      QQWalletAioBody AioBody = 1;
+    }
+
+    message CrmElem{
+      bytes Crmbuf = 1;
+      bytes Msgresid = 2;
+      int32 Qidianflag = 3;
+      int32 Pushflag = 4;
+      int32 Countflag = 5;
+    }
+
+    message ConferenceTipsInfo{
+      int32 Sessiontype = 1;
+      int64 Sessionuin = 2;
+      string Text = 3;
+    }
+    message RedbagInfo{
+      int32  Type = 1;
+    }
+    message LowVersionTips{
+      int32 Businessid = 1;
+      int32 Sessiontype = 2;
+      int64 Sessionuin = 3;
+      int64 Senderuin = 4;
+      string Text = 5;
+    }
+
+    message NearByMsg{
+      int32 Type = 1;
+      int32 IdentifyType = 2;
+    }
+
+    message CustomElem{
+      bytes Desc = 1;
+      bytes Data = 2;
+      int32 Enumtype = 3;
+      bytes Ext = 4;
+      bytes Sound = 5;
+    }
+
+    message LocationInfo{
+      double Longitude = 1;
+      double Latitude = 2;
+      bytes Desc = 3;
+    }
+
+    message PubAccInfo{
+      int32 Isinternum = 1;
+      string Ingmsgtemplateid = 2;
+      string Inglongmsgurl = 3;
+      bytes Downloadkey = 4;
+    }
+
+    message SmallEmoji{
+      int32 Packidsum = 1;
+      int32 Imagetype = 2;
+    }
+
+
+
+    message FsjMsgElem{
+      int32 MsgType = 1;
+    }
+    message ArkApp{
+      string Appname = 1;
+      string Minversion = 2;
+      string Xmltemplate = 3;
+      bytes Data = 4;
+    }
+
+    message GeneralFlags{
+      int32 Bubblediytextid = 1;
+      int32 Groupflagnew = 2;
+      int64 Uin = 3;
+      bytes Rpid = 4;
+      int32 Prpfold = 5;
+      int32 Longtextflag = 6;
+      string Longtextresid = 7;
+      int32 Grouptype = 8;
+      int32 Touinflag = 9;
+      int32 Glamourlevel = 10;
+      int32 Memberlevel = 11;
+      int64 Grouprankseq = 12;
+      int32 Olympictorch = 13;
+      bytes Babyqguidemsgcookie = 14;
+      int32 Uin32expertflag = 15;
+      int32 Bubblesubid = 16;
+      int64 Pendantid = 17;
+      bytes Rpindex = 18;
+      bytes Pbreserve = 19;
+    }
+
+    message HcFlashPic{
+      bytes Guid = 1;
+      string Filepath = 2;
+      string Shortcut = 3;
+      bytes Buffer = 4;
+      bytes Flag = 5;
+      bytes Olddata = 6;
+      int32 Fileid = 7;
+      int32 Serverip = 8;
+      int32 Serverport = 9;
+      int32 Filetype = 10;
+      bytes Signature = 11;
+      int32 Useful = 12;
+      bytes Md5 = 13;
+      string Thumburl = 14;
+      string Bigurl = 15;
+      string Origurl = 16;
+      int32 Biztype = 17;
+      int32 Repeatindex = 18;
+      int32 Repeatimage = 19;
+      int32 Imagetype = 20;
+      int32 Index = 21;
+      int32 Width = 22;
+      int32 Height = 23;
+      int32 Source = 24;
+      int32 Size = 25;
+      int32 Origin = 26;
+      int32 Thumbwidth = 27;
+      int32 Thumbheight = 28;
+      int32 Showlen = 29;
+      int32 Downloadlen = 30;
+      string Url = 31;
+      int32 Otherwidth = 32;
+      int32 Otherheight = 33;
+      bytes Pbreserve = 34;
+    }
+
+    message DeliverGiftMsg{
+      bytes Graytipcontent = 1;
+      int32 Animationpackageid = 2;
+      bytes Animationpackageurla = 3;
+      bytes Animationpackageurli = 4;
+      bytes Remindbrief = 5;
+      int32 Giftid = 6;
+      int32 Giftcount = 7;
+      bytes Animationbrief = 8;
+      int64 Senderuin = 9;
+      int64 Receiveruin = 10;
+      bytes Stmessagetitle = 11;
+      bytes Stmessagesubtitle = 12;
+      bytes Stmessagemessage = 13;
+      int32 Stmessagegiftpicid = 14;
+      bytes Stmessagecomefrom = 15;
+      int32 Stmessageexflag = 16;
+      bytes Toallgiftid = 17;
+      bytes Comefromlink = 18;
+      bytes Pbreserve = 19;
+      bytes Receivername = 20;
+      bytes Receiverpic = 21;
+      bytes Stmessagegifturl = 22;
+    }
+
+    message BitappMsg{
+      bytes Buff = 1;
+    }
+
+    message OpenQqData{
+      bytes CarQqData = 1;
+    }
+
+    message ApolloMsg{
+      int32 Actionid = 1;
+      bytes Actionname = 2;
+      bytes Actiontext = 3;
+      int32 Flag = 4;
+      int32 Peeruin = 5;
+      int32 Senderts = 6;
+      int32 Peerts = 7;
+      int32 Int32senderstatus = 8;
+      int32 Int32peerstatus = 9;
+      int32 Diytextid = 10;
+      bytes Diytextcontent = 11;
+      bytes Inputtext = 12;
+      bytes Pbreserve = 13;
+    }
+
+    message GroupPubAccInfo{
+      int64 PubAccount = 1;
+    }
+    message BlessMsg{
+      int32 Type = 1;
+      int32 ExFlag = 2;
+    }
+
+    message SrcMsg{
+      repeated int32 Origseqs = 1;
+      int64 Senderuin = 2;
+      int32 Time = 3;
+      int32 Flag = 4;
+      repeated Elem Elems = 5;
+      int32 Type = 6;
+      bytes Richmsg = 7;
+      bytes Pbreserve = 8;
+      bytes Srcmsg = 9;
+      int64 Touin = 10;
+      bytes Troopname = 11;
+    }
+
+    message LolaMsg{
+      bytes Msgresid = 1;
+      bytes Encodecontent = 2;
+      bytes Longmsgurl = 3;
+      bytes Downloadkey = 4;
+    }
+
+    message GroupBusinessMsg{
+      int32 Flags = 1;
+      bytes Headurl = 2;
+      bytes Headclkurl = 3;
+      bytes Nick = 4;
+      bytes Nickcolor = 5;
+      bytes Rank = 6;
+      bytes Rankcolor = 7;
+      bytes Rankbgcolor = 8;
+    }
+
+
+    message MsgWorkflowNotify{
+      bytes Extmsg = 1;
+      int64 Createuin = 2;
+    }
+
+    message PatElem{
+      int32 Pattype = 1;
+      int32 Patcount = 2;
+    }
+
+    message GroupPostElem{
+      int32 TransType = 1;
+      bytes TransMsg = 2;
+    }
+
+    message LightApp{
+      bytes Data = 1;
+      bytes MsgResId = 2;
+    }
+
+    message EimInfo{
+      int64 RootId = 1;
+      int32 Flag = 2;
+    }
+
+
+    message CommonElem{
+      int32 Servicetype = 1;
+      bytes Pbelem = 2;
+      int32 Businesstype = 3;
+    }
+
+    message Elem{
+      Text Text = 1;
+      Face Face = 2;
+      OnlineImage OnlineImage = 3;
+      NotOnlineImage NotOnlineImage = 4;
+      TransElemInfo TransElemInfo = 5;
+      MarketFace MarketFace = 6;
+      ElemFlags ElemFlags = 7;
+      CustomFace CustomFace = 8;
+      ElemFlags2 ElemFlags2 = 9;
+      FunFace FunFace = 10;
+      SecretFileMsg SecretFileMsg = 11;
+      RichMsg RichMsg = 12;
+      GroupFile GroupFile = 13;
+      PubGroup PubGroup = 14;
+      MarketTrans MarketTrans = 15;
+      ExtraInfo ExtraInfo = 16;
+      ShakeWindow ShakeWindow = 17;
+      PubAccount PubAccount = 18;
+      VideoFile VideoFile = 19;
+      TipsInfo TipsInfo = 20;
+      AnonGroupMsg AnonGroupMsg = 21;
+      QqLiveOld QqLiveOld = 22;
+      LifeOnline LifeOnline = 23;
+      QQWalletMsg QQWalletMsg = 24;
+      CrmElem CrmElem = 25;
+      ConferenceTipsInfo ConferenceTipsInfo = 26;
+      RedbagInfo RedbagInfo = 27;
+      LowVersionTips LowVersionTips = 28;
+      bytes BankcodeCtrlInfo = 29;
+      NearByMsg NearByMsg = 30;
+      CustomElem CustomElem = 31;
+      LocationInfo LocationInfo = 32;
+      PubAccInfo PubAccInfo = 33;
+      SmallEmoji SmallEmoji = 34;
+      FsjMsgElem FsjMsgElem = 35;
+      ArkApp ArkApp = 36;
+      GeneralFlags GeneralFlags = 37;
+      HcFlashPic HcFlashPic = 38;
+      DeliverGiftMsg DeliverGiftMsg = 39;
+      BitappMsg BitappMsg = 40;
+      OpenQqData OpenQqData = 41;
+      ApolloMsg ApolloMsg = 42;
+      GroupPubAccInfo GroupPubAccInfo = 43;
+      BlessMsg BlessMsg = 44;
+      SrcMsg SrcMsg = 45;
+      LolaMsg LolaMsg = 46;
+      GroupBusinessMsg GroupBusinessMsg = 47;
+      MsgWorkflowNotify MsgWorkflowNotify = 48;
+      PatElem PatElem = 49;
+      GroupPostElem GroupPostElem = 50;
+      LightApp LightApp = 51;
+      EimInfo EimInfo = 52;
+      CommonElem CommonElem = 53;
+    }
+    message RichText{
+      Attribute Attribute = 1;
+      repeated Elem MutableList = 2;
+      NotOnlineFile NotOnlineFile = 3;
+      Ptt Ptt = 4;
+      TmpPtt TmpPtt = 5;
+      Trans211TmpMsg Trans211TmpMsg = 6;
+
+
+    }
+
+    message MsgBody{
+      RichText RichText = 1;
+      bytes MsgContent = 2;
+      bytes MsgEncryptContent = 3;
+    }
+  }
+  message ImMsgHead{
+    message InstInfo{
+      int32 Appid = 1;
+      int32 Instid = 2;
+      int32 Platform = 3;
+      int32 EnumDeviceType = 10;
+    }
+    message InstCtrl{
+      repeated InstInfo MsgSendToInst = 1;
+      repeated InstInfo MsgExcludeInst = 2;
+      InstInfo MsgFromInst = 3;
+    }
+  }
+  message PluginInfo{
+    int32 ResId = 1;
+    string PkgName = 2;
+    int32 NewVar = 3;
+    int32 ResType = 4;
+    int32 LanType = 5;
+    int32 Priority = 6;
+    string ResName = 7;
+    string  ResDesc = 8;
+    string  ResUrlBig = 9;
+    string ResUrlSmall = 10;
+    string ResConf = 11;
+  }
+  message AppShareInfo{
+    int32 AppshareId = 1;
+    bytes AppshareCookie = 2;
+    PluginInfo AppshareResource = 3;
+  }
+
+  message C2cTmpMsgHead{
+    int32 C2cType = 1 ;
+    int32 ServiceType = 2;
+    int64 GroupUin = 3;
+    int64 groupCode = 4;
+    bytes Sig = 5;
+    int32 SigType = 6;
+    string FromPhone = 7;
+    string ToPhone = 8;
+    int32 LockDisplay = 9;
+    int32 DirectionFlag = 10;
+    bytes Reserved = 11;
+
+  }
+  message DiscussInfo{
+    int64 DiscussUin = 1;
+    int32 DiscussType = 2;
+    int64 DiscussInfoSeq = 3;
+    bytes DiscussRemark = 4;
+    bytes DiscussName = 5;
+  }
+  message GroupInfo{
+    int64  GroupCode = 1;
+    int32 GroupType = 2;
+    int64 GroupInfoSeq = 3;
+    string GroupCard = 4;
+    bytes GroupRank = 5;
+    int32 GroupLevel = 6;
+    int32 GroupCardType = 7;
+    // utf-8
+    bytes  GroupName = 8;
+  }
+  message MutilTransHead{
+    int32 Status = 1;
+    int32 MsgId = 2;
+  }
+  message ExtGroupKeyInfo{
+    int32 CurMaxSeq = 1;
+    int64 CurTime = 2;
+  }
+  message MsgHead{
+    int64 FromUin = 1;
+    int64 ToUin = 2;
+    int32 MsgType = 3;
+    int32 C2cCmd = 4;
+    int32  MsgSeq = 5;
+    int32 MsgTime = 6;
+    int64 MsgUid = 7;
+    C2cTmpMsgHead C2CTmpMsgHead = 8;
+    GroupInfo GroupInfo = 9;
+    int32 FromAppid = 10;
+    int32 FromInstid = 11;
+    int32 UserActive = 12;
+    DiscussInfo DiscussInfo = 13;
+    string FromNick = 14;
+    int64 AuthUin = 15;
+    string AuthString = 16;
+    int32 MsgFlag = 17;
+    string AuthRemark = 18;
+    // utf-8
+    bytes GroupName = 19;
+    MutilTransHead MutilTransHead = 20;
+    ImMsgHead.InstCtrl MsgInstCtrl = 21;
+    int32 PublicAccountGroupSendFlag = 22;
+    int32 WseqInC2cMsghead = 23;
+    int64 Cpid = 24;
+    ExtGroupKeyInfo ExtGroupKeyInfo = 25;
+    string MultiCompatibleText = 26;
+    int32 AuthSex = 27;
+    bool IsSrcMsg = 28;
+  }
+  message ContentHead{
+    int32 PkgNum = 1;
+    int32 PkgIndex = 2;
+    int32 DivSeq = 3;
+    int32 AutoReply = 4;
+  }
+  message Msg{
+    MsgHead MsgHead = 1;
+    ContentHead ContentHead = 2;
+    ImMsgBody.MsgBody MsgBody = 3;
+    AppShareInfo AppshareInfo = 4;
+  }
+
+  message UinPairMsg{
+    int32 LastReadTime = 1;
+    int64 PeerUin = 2;
+    int32 MsgCompleted = 3;
+    repeated Msg MsgList = 4;
+    int32 UnreadMsgNum = 5;
+    int32 C2cType = 8;
+    int32 serviceType = 9;
+    bytes PbReserve = 10;
+  }
+
+  message C2c{
+    int64 ToUin = 1;
+  }
+  message Grp{
+    int64  GroupCode = 1;
+  }
+
+  message GrpTmp{
+    int64 GroupUin = 1;
+    int64 ToUin = 2;
+  }
+  message Dis{
+    int64 DisUin = 1;
+  }
+
+  message DisTmp{
+    int64 DisUin = 1;
+    int64 ToUin = 2;
+  }
+
+  message WpaTmp{
+    int64 ToUin = 1;
+    bytes Sig = 2;
+  }
+  message SubMsgType0xc1{
+    message NotOnlineImage{
+      bytes Filepath = 1;
+      int32 Filelen = 2;
+      bytes Downloadpath = 3;
+      bytes Oldversendfile = 4;
+      int32 Imgtype = 5;
+      bytes Previewsimage = 6;
+      bytes Picmd5 = 7;
+      int32 Picheight = 8;
+      int32 Picwidth = 9;
+      bytes Resid = 10;
+      bytes Flag = 11;
+      string Downloadurl = 12;
+      int32 Original = 13;
+    }
+    message MsgBody{
+      bytes Filekey = 1;
+      int64 Fromuin = 2;
+      int64 Touin = 3;
+      int32 Status = 4;
+      int32 Ttl = 5;
+      int32 Type = 6;
+      int32 Encryptpreheadlength = 7;
+      int32 Encrypttype = 8;
+      bytes Encryptkey = 9;
+      int32 Readtimes = 10;
+      int32 Lefttime = 11;
+      NotOnlineImage Notonlineimage = 12;
+
+    }
+  }
+
+  message SecretFileHead{
+    SubMsgType0xc1.MsgBody  SecretFileMsg = 1;
+  }
+
+  message PublicPlat{
+    int64 ToUin = 1;
+    bytes Sig = 2;
+  }
+
+  message TransMsg{
+    int64 ToUin = 1;
+    int32 C2cCmd = 2;
+  }
+
+  message AddressListTmp{
+    string Fromphone = 1;
+    string Tophone = 2;
+    int64 Touin = 3;
+    bytes Sig = 4;
+    int32 Fromcontactsize = 5;
+  }
+
+  message RichStatusTmp{
+    int64 ToUin = 1;
+    bytes Sig = 2;
+  }
+  message TransCmd{
+    int64 ToUin = 1;
+    int32 MsgType = 2;
+  }
+
+  message AccostTmp{
+    int64 ToUin = 1;
+    bytes Sig = 2;
+    bool Reply = 3;
+  }
+  message PubGroupTmp{
+    int64 ToUin = 1;
+    bytes Sig = 2;
+    int64 GroupUin = 3;
+  }
+
+  message Trans0x211{
+    int64 Touin = 1;
+    int32 CcCmd = 2;
+    ImMsgHead.InstCtrl Instctrl = 3;
+    bytes Sig = 4;
+    int32 C2cType = 5;
+    int32 ServiceType = 6;
+  }
+
+  message BusinessWPATmp{
+    int64 Touin = 1;
+    bytes Sig = 2;
+    bytes Sigt = 3;
+  }
+  message AuthTmp{
+    int64 ToUin = 1;
+    bytes Sig = 2;
+  }
+  message BsnsTmp{
+    int64 ToUin = 1;
+    bytes Sig = 2;
+  }
+  message QqqueryBusinessTmp{
+    int64 ToUin = 1;
+    bytes Sig = 2;
+  }
+  message NearbyDatingTmp{
+    int64 ToUin = 1;
+    bytes Sig = 2;
+    bool Reply = 3;
+  }
+  message NearByAssistantTmp{
+    int64 ToUin = 1;
+    bytes Sig = 2;
+    bool Reply = 3;
+  }
+  message CommTmp{
+    int64 Touin = 1;
+    int32 C2ctype = 2;
+    int32 Svrtype = 3;
+    bytes Sig = 4;
+    bytes Reserved = 5;
+  }
+  message RoutingHead{
+    C2c C2c = 1;
+    Grp Grp = 2;
+    GrpTmp GrpTmp = 3;
+    Dis Dis = 4;
+    DisTmp DisTmp = 5;
+    WpaTmp WpaTmp = 6;
+    SecretFileHead SecretFileHead = 7;
+    PublicPlat PublicPlat = 8;
+    TransMsg TransMsg = 9;
+    AddressListTmp AddressListTmp = 10;
+    RichStatusTmp RichStatusTmp = 11;
+    TransCmd TransCmd = 12;
+    AccostTmp AccostTmp = 13;
+    PubGroupTmp PubGroupTmp = 14;
+    Trans0x211 Trans0x211 = 15;
+    BusinessWPATmp BusinessWPATmp = 16;
+    AuthTmp AuthTmp = 17;
+    BsnsTmp BsnsTmp = 18;
+    QqqueryBusinessTmp QqqueryBusinessTmp = 19;
+    NearbyDatingTmp NearbyDatingTmp = 20;
+    NearByAssistantTmp NearByAssistantTmp = 21;
+    CommTmp CommTmp = 22;
+  }
+  message MultiMsgAssist{
+    repeated RoutingHead Repeatedrouting = 1;
+    int32 MsgUse = 2;
+    int64 TempId = 3;
+    int64 VedioLen = 4;
+    bytes RedBagid = 5;
+    int64 RedBagamount = 6;
+    int32 HasReadbag = 7;
+    int32 HasVedio = 8;
+  }
+  message PbInputNotifyInfo{
+    int64 Touin = 1;
+    int32 Ime = 2;
+    int32 Notifyflag = 3;
+    bytes Pbreserve = 4;
+    bytes Iospushwording = 5;
+  }
+  message ResvResvInfo{
+    int32 Flag = 1;
+    bytes Reserv1 = 2;
+    int64 Reserv2 = 3;
+    int64 Reserv3 = 4;
+    int32 Createtime = 5;
+    int32 Picheight = 6;
+    int32 Picwidth = 7;
+    int32 Resvflag = 8;
+  }
+  message MsgCtrl{
+    int32 MsgFlag = 1;
+    ResvResvInfo ResvResvInfo = 2;
+  }
+  message ImReceipt{
+    message MsgInfo{
+      int64 FromUin = 1;
+      int64 ToUin = 2;
+      int32 MsgSeq = 3;
+      int32 MsgRandom = 4;
+    }
+    message ReceiptReq{
+      int32 Command = 1;
+      MsgInfo MsgInfo = 2;
+    }
+    message ReceiptInfo{
+      int64 ReadTime = 1;
+    }
+    message ReceiptResp{
+      int32 Command = 1;
+      ReceiptInfo ReceiptInfo = 2;
+
+    }
+  }
+
+  message PbC2CMsgWithDrawReq{
+    message MsgInfo{
+      int64 Fromuin = 1;
+      int64 Touin = 2;
+      int32 Msgseq = 3;
+      int64 Msguid = 4;
+      int64 Msgtime = 5;
+      int32 Msgrandom = 6;
+      int32 Pkgnum = 7;
+      int32 Pkgindex = 8;
+      int32 Divseq = 9;
+      int32 Msgtype = 10;
+      RoutingHead Routinghead = 20;
+    }
+    repeated  MsgInfo MsgInfoList = 1;
+    int32  LongMessageFlag = 2;
+    bytes Reserved = 3;
+    int32 SubCmd = 4;
+  }
+
+  message MsgSendInfo{
+    int32 Receiver = 1;
+  }
+  message TransSvrInfo{
+    int32 SubType = 1;
+    int32 Int32RetCode = 2;
+    bytes ErrMsg = 3;
+    bytes TransInfo = 4;
+  }
+
+  message PbGroupMsgWithDrawReq{
+    message MessageInfo{
+      int32 MsgSeq = 1;
+      int32 MsgRandom = 2;
+      int32 MsgType = 3;
+    }
+    int32 Subcmd = 1;
+    int32 Grouptype = 2;
+    int64 Groupcode = 3;
+    repeated MessageInfo Msglist = 4;
+    bytes Userdef = 5;
+  }
+}
+
+
+message PbMsgWithDrawReq{
+  repeated MsgField.PbC2CMsgWithDrawReq ListPbC2CMsgWithDrawReq = 1;
+  repeated MsgField.PbGroupMsgWithDrawReq ListPbGroupMsgWithDrawReq = 2;
+}
+
+
+enum SyncFlag{
+  Start = 0;
+  Continue = 1;
+  Stop = 2;
+}
+
+message OnlinePushTrans{
+  message ExtGroupKeyInfo{
+    int32 CurMaxSeq = 1;
+    int64 CurTime = 2;
+  }
+  message PbMsgInfo{
+    int64 Fromuin = 1;
+    int64 Touin = 2;
+    int32 Msgtype = 3;
+    int32 Msgsubtype = 4;
+    int32 Msgseq = 5;
+    int64 Msguid = 6;
+    int32 Msgtime = 7;
+    int32 Realmsgtime = 8;
+    string Nickname = 9;
+    //没有具体pb结构???
+    bytes Msgdata = 10;
+    int32 Svrip = 11;
+    ExtGroupKeyInfo Extgroupkeyinfo = 12;
+    int32 Generalflag = 17;
+  }
+}
+
+message SyncCookie{
+  int64 time1 = 1;
+  int64 time2 = 2;
+  int64  param1 = 3;
+  int64 param2 = 4;
+  int64 param3 = 5;
+  int64 param4 = 11;
+  int64 param5 = 12;
+  int64 LastSyncTime = 13;
+  int64  param6 = 14;
+}
+
+message MsgItem{
+  int64 FromUin = 1;
+  int64 ToUin = 2;
+  int32 MsgType = 3;
+  int32 MsgSeq = 4;
+  int64 MsgUid = 5;
+  bytes Sig = 7;
+}
+
+message PbDeleteMsgResp{
+  int32 Result = 1;
+  string ErrorMsg = 2;
+}
+
+message PbDeleteMsgReq{
+  repeated MsgItem MsgList = 1;
+}
+
+
+message PbPushGroupMsg{
+  MsgField.Msg Msg = 1;
+  int32 Svrip = 2;
+  bytes PushToken = 3;
+  int32 PingFlag = 4;
+  int32 GeneralFlag = 5;
+}
+
+message PbSendMsgResp{
+  int32 Result = 1;
+  string ErrorMsg = 2;
+  int32 SendTime = 3;
+  int32 SvrbusyWaitTime = 4;
+  MsgField.MsgSendInfo MsgSendInfo = 5;
+  int32 ErrType = 6;
+  MsgField.TransSvrInfo TransSvrInfo = 7;
+  MsgField.ImReceipt.ReceiptResp ReceiptResp = 8;
+  int32  TextAnalysisResult = 9;
+}
+
+message PbSendMsg{
+  MsgField.RoutingHead RoutingHead = 1;
+  MsgField.ContentHead ContentHead = 2;
+  MsgField.ImMsgBody.MsgBody MsgBody = 3;
+  int32  MsgSeq = 4;
+  int32  MsgRand = 5;
+  bytes SyncCookie = 6;
+  MsgField.AppShareInfo AppShare = 7;
+  int32 MsgVia = 8;
+  int32 DataStatist = 9;
+  MsgField.MultiMsgAssist MultiMsgAssist = 10;
+  MsgField.PbInputNotifyInfo PbInputNotifyInfo = 11;
+  MsgField.MsgCtrl MsgCtrl = 12;
+  MsgField.ImReceipt.ReceiptReq ReceiptReq = 13;
+  int32 MultiSendSeq = 14;
+}
+
+
+
+message PbGetMsgResp{
+  int32 Result = 1;
+  string ErrorMsg = 2;
+  bytes SyncCookie = 3;
+  SyncFlag Flag = 4;
+  repeated MsgField.UinPairMsg UinPairMsgs = 5;
+  int64 Binduin = 6;
+  int32 Msgrsptype = 7;
+  bytes Pubaccountcookie = 8;
+  bool Ispartialsync = 9;
+  bytes  Msgctrlbuf = 10;
+
+}
+message PbGetMsgReq{
+  SyncFlag Flag = 1;
+  bytes SyncCookie = 2;
+  int32 RambleFlag = 3;
+  int32 LatestRambleNumber = 4;
+  int32 OtherRambleNumber = 5;
+  int32 OnlineSyncFlag = 6;
+  int32 ContextFlag = 7;
+  int32 WhisperSessionId = 8;
+  int32 MsgReqType = 9;
+  bytes PubaccountCookie = 10;
+  bytes MsgCtrlBuf = 11;
+  bytes ServerBuf = 12;
+}

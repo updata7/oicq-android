@@ -1,0 +1,60 @@
+module PushNotify
+{
+    struct CPicInfo
+    {
+        0 require vector<byte> Path;
+        1 require vector<byte> Host;
+    };
+
+    struct ShareData {
+        0 require string PkgName;
+        1 require string MsgTail;
+        2 require string PicUrl;
+        3 require string Url;
+    };
+
+
+    struct MsgInfo
+    {
+        0 require long FromUin;
+        1 require long MsgTime;
+        2 require short MsgType;
+        3 require short MsgSeq;
+        4 require string StrMsg;
+        5 require int  RealMsgTime;
+        6 require vector<byte> Msg;
+        7 require long AppShareID;
+        8 require vector<byte> MsgCookies;
+        9 require vector<byte> AppShareCookie;
+        10 require long  MsgUid;
+        11 require long LastChangeTime;
+        12 require vector<CPicInfo> CPicInfo;
+        13 require  ShareData   ShareData;
+        14 require long FromInstId;
+        15 require vector<byte> RemarkOfSender;
+        16 require string FromMobile;
+        17 require string FromName;
+        18 require vector<string>  NickName;
+    };
+
+    struct Pack {
+            0 require long Uin;
+            1 require byte CType;
+            2 require string Service;
+            3 require string Cmd;
+            4 require vector<byte> NotifyCookie;
+            5 require short MsgType;
+            6 require byte UserActive;
+            7 require byte GeneralFlag;
+            8 require long BindedUin;
+            9 require MsgInfo MsgInfo;
+            10 require string MsgCtrlBuf;
+            11 require vector<byte> ServerBuf;
+            12 require long PingFlag;
+            13 require byte Svrip;
+    };
+    struct Struct{
+        0 require Pack Pack;
+    };
+
+};
