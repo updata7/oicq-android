@@ -3,6 +3,13 @@
 - 发送文本消息
 - 挂机
 
+
+# 快速开始
+```sh
+node ./example/index.js 
+Linux系统需要 chmod 755 ./dist/Android/index.out
+```
+
 # 例子
 
 ```sh
@@ -93,7 +100,4 @@ Bot.Login(BotConfig.QQ, BotConfig.PassWord).then((Notify) => {
             break;
     }
 })
-
-
-
 ```
